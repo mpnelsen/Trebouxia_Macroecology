@@ -1,5 +1,5 @@
 # Trebouxia_Macroecology
- Files and code associated with Nelsen et al. 2021 FEMS Microbiology Ecology
+ Files and code associated with Nelsen et al. 2021 FEMS Microbiology Ecology https://doi.org/10.1093/femsec/fiab072
 
 FOR MOST PEOPLE, WHAT YOU WILL WANT TO USE ARE THE FOLLOWING FILES IN THE ANALYSIS/FILES FOLDER, CSV_FILES_ETC & ALGAL_TREES SUBFOLDERS, RESPECTIVELY:
 
