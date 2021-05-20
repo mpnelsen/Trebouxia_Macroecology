@@ -1,0 +1,14 @@
+windowmasker -in file.fasta -infmt fasta -mk_counts -parse_seqids -out mask.counts
+
+/Applications/ncbi-blast-2.2.29+/bin/windowmasker -in /Users/matthewnelsen/Documents/lichen_symbiotic_algae_review/blast_filter_standards_25august2014/blast_23_september_2016/standards_post_itsx_10may2015_changed_myrmecia_name_to_palma_23sep2016_added_JX036241.fasta -infmt fasta -mk_counts -parse_seqids -out /Users/matthewnelsen/Documents/lichen_symbiotic_algae_review/blast_filter_standards_25august2014/blast_23_september_2016/standards_post_itsx.mask.counts
+computing the genome length
+pass 1
+pass 2
+
+windowmasker -in file.fasta -infmt fasta -ustat mask.counts -outfmt maskinfo_asn1_bin -parse_seqids -out newfile_mask.asnb
+
+/Applications/ncbi-blast-2.2.29+/bin/windowmasker -in /Users/matthewnelsen/Documents/lichen_symbiotic_algae_review/blast_filter_standards_25august2014/blast_23_september_2016/standards_post_itsx_10may2015_changed_myrmecia_name_to_palma_23sep2016_added_JX036241.fasta -infmt fasta -ustat /Users/matthewnelsen/Documents/lichen_symbiotic_algae_review/blast_filter_standards_25august2014/standards_post_itsx.mask.counts -outfmt maskinfo_asn1_bin -parse_seqids -out /Users/matthewnelsen/Documents/lichen_symbiotic_algae_review/blast_filter_standards_25august2014/blast_23_september_2016/standards_post_itsx.mask.asnb
+
+makeblastdb -in file.fasta -input_type fasta -dbtype nucl -parse_seqids -mask_data -mask_data newfile_mask.asnb -out small.db -title "trebouxia, algae, or fungi"
+
+/Applications/ncbi-blast-2.2.29+/bin/makeblastdb -in /Users/matthewnelsen/Documents/lichen_symbiotic_algae_review/blast_filter_standards_25august2014/blast_23_september_2016/standards_post_itsx_10may2015_changed_myrmecia_name_to_palma_23sep2016_added_JX036241.fasta -input_type fasta -dbtype nucl -parse_seqids -mask_data /Users/matthewnelsen/Documents/lichen_symbiotic_algae_review/blast_filter_standards_25august2014/blast_23_september_2016/standards_post_itsx.mask.asnb -out blast_23_september_2016.db -title "Algal and Fungal Standards"

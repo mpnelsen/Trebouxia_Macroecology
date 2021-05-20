@@ -1,0 +1,52 @@
+import re
+import os
+import csv
+import time
+import shutil
+import subprocess
+from Bio import SeqIO
+from Bio.Seq import Seq
+from cogent import LoadSeqs, DNA
+from Bio.SeqRecord import SeqRecord
+from Bio.SeqFeature import SeqFeature, FeatureLocation, Reference
+#01mar2018 fasta file was actually acquired on 24june2018 and just labeled incorrectly in thegrabber script.
+input_acc_file ="/xxx24june2018/Trebouxia_24june2018_new_accession_list_updates_ready_to_go.csv" 
+input_seq_file ="/xxx24june2018/Trebouxia_01mar2018_out_parsed_removed_quotes_around_simplexclade1.fasta"
+earlier_seq_file = "/xxx23sep2016_starting_over/MASTER_sequence_file_TARGET_from_16sep2016c_manfailpulled.fasta"
+sim_thresh = ['95', '97', '97.5', '98', '99', '100']
+subclades = ['A', 'I', 'G', 'S']
+blastn="/Applications/ncbi-blast-2.2.29+/bin/blastn"
+blastdb="/Applications/blast_23_september_2016/blast_23_september_2016.db"
+itsx="/Applications/ITSx_1.0.9_mod/ITSx"
+mothur="/Applications/mothur_1.33.3/mothur"
+blastclust="/Applications/blast-2.2.26/bin/blastclust"
+megablast="/Applications/blast-2.2.26/bin/megablast"
+windomasker="/Applications/ncbi-blast-2.2.29+/bin/windowmasker"
+makeblastdb="/Applications/ncbi-blast-2.2.29+/bin/makeblastdb"
+
+
+
+###########################################################################################################
+
+#blastclust for individual clusters at different similarity thresholds...
+
+for clade in subclades:
+	subprocess.call(args="{0} -i working_dir/{1}.fasta -S 100 -L 1 -a 8 -e F -o working_dir/{1}_H_clusters -p F".format(blastclust,clade), shell=True);
+
+
+new_list=open("working_dir/blastclust_H_otu_assignment.txt","w")
+for clade in subclades:
+	cluster = [line.strip() for line in open("working_dir/{0}_H_clusters".format(clade))]
+	numb = 0
+	for line in cluster:
+		numb = numb + 1
+		line = line.split()
+		for tax in line:
+			new_list.write("%s_H_%s\t%s\n" % (clade, numb, tax))
+
+new_list.close();
+
+
+#adds raw otu info to master file at differing similarity thresholds
+subprocess.call(args="Rscript scripts/post_haplo_cleaning.r",shell=True);
+

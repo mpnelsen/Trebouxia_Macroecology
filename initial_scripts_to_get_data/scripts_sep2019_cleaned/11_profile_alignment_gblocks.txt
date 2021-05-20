@@ -1,0 +1,26 @@
+#merge and profile align Trebouxia clades
+ruby /xxxx/working_dir_for_aligns_sep2019/individual_97.5_clusters/repseq_alignments_by_clade/makemergetable.rb /xxxx/working_dir_for_aligns_sep2019/individual_97.5_clusters/repseq_alignments_by_clade/A_rep_seqs_aligned_regular_ginsi.fasta.man.fasta /xxxx/working_dir_for_aligns_sep2019/individual_97.5_clusters/repseq_alignments_by_clade/I_rep_seqs_aligned_regular_ginsi.fasta.man.fasta /xxxx/working_dir_for_aligns_sep2019/individual_97.5_clusters/repseq_alignments_by_clade/G_rep_seqs_aligned_regular_ginsi.fasta.man.fasta /xxxx/working_dir_for_aligns_sep2019/individual_97.5_clusters/repseq_alignments_by_clade/S_rep_seqs_aligned_regular_ginsi.fasta.man.fasta > /xxxx/working_dir_for_aligns_sep2019/individual_97.5_clusters/repseq_alignments_by_clade/trebouxia_submsa_table
+
+cat /xxxx/working_dir_for_aligns_sep2019/individual_97.5_clusters/repseq_alignments_by_clade/A_rep_seqs_aligned_regular_ginsi.fasta.man.fasta /xxxx/working_dir_for_aligns_sep2019/individual_97.5_clusters/repseq_alignments_by_clade/I_rep_seqs_aligned_regular_ginsi.fasta.man.fasta /xxxx/working_dir_for_aligns_sep2019/individual_97.5_clusters/repseq_alignments_by_clade/G_rep_seqs_aligned_regular_ginsi.fasta.man.fasta /xxxx/working_dir_for_aligns_sep2019/individual_97.5_clusters/repseq_alignments_by_clade/S_rep_seqs_aligned_regular_ginsi.fasta.man.fasta > /xxxx/working_dir_for_aligns_sep2019/individual_97.5_clusters/repseq_alignments_by_clade/trebouxia_merged_but_not_profiled.fasta
+
+/xxxx/mafft-7.402-without-extensions/core/mafft --globalpair --maxiterate 1000 --thread 5 --preservecase --merge /xxxx/working_dir_for_aligns_sep2019/individual_97.5_clusters/repseq_alignments_by_clade/trebouxia_submsa_table /xxxx/working_dir_for_aligns_sep2019/individual_97.5_clusters/repseq_alignments_by_clade/trebouxia_merged_but_not_profiled.fasta > /xxxx/working_dir_for_aligns_sep2019/individual_97.5_clusters/repseq_alignments_by_clade/trebouxia_merged_profiled.fasta
+
+
+
+#merge and profile align the profile-aligned Trebouxia with the outgroups
+ruby /xxxx/working_dir_for_aligns_sep2019/individual_97.5_clusters/repseq_alignments_by_clade/makemergetable.rb /xxxx/working_dir_for_aligns_sep2019/individual_97.5_clusters/repseq_alignments_by_clade/outs.good.aligned.fasta.MAN.fasta /xxxx/working_dir_for_aligns_sep2019/individual_97.5_clusters/repseq_alignments_by_clade/trebouxia_merged_profiled.fasta > /xxxx/working_dir_for_aligns_sep2019/individual_97.5_clusters/repseq_alignments_by_clade/outs_w_trebouxia_submsa_table
+
+cat /xxxx/working_dir_for_aligns_sep2019/individual_97.5_clusters/repseq_alignments_by_clade/outs.good.aligned.fasta.MAN.fasta /xxxx/working_dir_for_aligns_sep2019/individual_97.5_clusters/repseq_alignments_by_clade/trebouxia_merged_profiled.fasta > /xxxx/working_dir_for_aligns_sep2019/individual_97.5_clusters/repseq_alignments_by_clade/outs_w_trebouxia_merged_but_not_profiled.fasta
+
+/xxxx/mafft-7.402-without-extensions/core/mafft --globalpair --maxiterate 1000 --thread 5 --preservecase --merge /xxxx/working_dir_for_aligns_sep2019/individual_97.5_clusters/repseq_alignments_by_clade/outs_w_trebouxia_submsa_table /xxxx/working_dir_for_aligns_sep2019/individual_97.5_clusters/repseq_alignments_by_clade/outs_w_trebouxia_merged_but_not_profiled.fasta > /xxxx/working_dir_for_aligns_sep2019/individual_97.5_clusters/repseq_alignments_by_clade/outs_w_trebouxia_merged_profiled.fasta
+
+
+
+#drop singletons first
+master<-read.csv(file="/Users/matthewnelsen/Documents/papers_reviews/papers/lichen_symbiotic_algae_review/24june2018/working_dir_sep2019/MASTER_accession_list.csv",stringsAsFactors=FALSE)
+singles<-names(table(master$OTU_97.5_Raw_16_Sep_2019))[table(master$OTU_97.5_Raw_16_Sep_2019)==1]
+singles_reps<-master$Organism_Acc_No[master$OTU_97.5_Raw_16_Sep_2019 %in% singles & master$RepSeq_97.5_Raw_16_Sep_2019 %in% "Yes"]
+#manually dropped them then
+
+#Gblocks...
+/xxxx/Gblocks_0.91b/Gblocks /xxxx/working_dir_for_aligns_sep2019/individual_97.5_clusters/repseq_alignments_by_clade/outs_w_trebouxia_merged_profiled.fasta.nex.termgapsasdashes.nex.nosingles.nex.fasta -t=d -b1=41 -b2=41 -b3=8 -b4=2 -b5=h

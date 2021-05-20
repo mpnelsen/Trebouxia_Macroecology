@@ -1,0 +1,30 @@
+﻿Species_Name,Voucher,FmtSSU,FITS,AITS1,AITS2,ArbcL,Substrate,Coords,Lat,Long
+Chrysothrix candelaris ,Thor 31379 ,,,MG687500,,,bark,"59°27.036′N, 16°04.613′E ",59.4506,16.0768833
+C. candelaris ,Thor 31380 ,,,MG687519,MG687501,,bark,"59°26.879′N, 16°04.711′E ",59.4479833,16.0785167
+C. candelaris ,Thor 31382 ,,,MG687504,,,bark,"59°26.808′N, 16°04.754′E ",59.4468,16.0792333
+C. candelaris ,Thor 31385 ,,,MG687506,,,bark,"59°26.810′N, 16°04.779′E ",59.4468333,16.07965
+Buellia violaceofusca ,Ertz 10169 ,,MG838723,,,,bark,,,
+B. violaceofusca ,Ertz 16062 ,MG845003,,,,,bark,,,
+B. violaceofusca ,Kukwa 12916 ,MG845004,,MG687514,,,bark,,,
+B. violaceofusca ,Kukwa 12998 ,MG845005,,MG687515,MG687516,,bark,,,
+B. violaceofusca ,Kukwa 15628 ,MG845006,MG838724,MG687518,,,bark,,,
+B. violaceofusca ,Thor 31255 ,,,MG687513,MG687512,,bark,"57°04.993′N, 18°18.588′E ",57.0832167,18.3098
+B. violaceofusca ,Thor 31376 ,,MG838725,MG687510,MG687511,,bark,"59°44′13.62′′N, 17°38′37.51′′E ",59.7371167,17.6437528
+B. violaceofusca ,Thor 31380 ,MG845007,MG838726,MG687507,,,bark,"59°26.879′N, 16°04.711′E ",59.4479833,16.0785167
+B. violaceofusca ,Thor 31382 ,,,MG687503,MG687502,,bark,"59°26.808′N, 16°04.754′E ",59.4468,16.0792333
+B. violaceofusca ,Thor 31385 ,,,MG687505,MG687508,,bark,"59°26.810′N, 16°04.779′E ",59.4468333,16.07965
+B. violaceofusca ,Thor 31389 ,,,MG687509,MG687517,,bark,"59°30.119′N, 16°28.176′E ",59.5019833,16.4696
+Lecanographa amylacea ,Thor 31378 ,,,,,MG676235,bark,"58°57.467′N, 17°34.463′E ",58.9577833,17.5743833
+L. amylacea ,Thor 31379 ,MG845008,,,,MG676236,bark,"59°27.036′N, 16°04.613′E ",59.4506,16.0768833
+L. amylacea ,Thor 31382 ,MG845009,MG838727,,,MG676237,bark,"59°26.808′N, 16°04.754′E ",59.4468,16.0792333
+L. amylacea ,Thor 31391-a ,MG845010,MG838728,,,MG676238,bark,"59°30.073′N, 16°27.558′E ",59.5012167,16.4593
+L. amylacea ,Thor 31391-b ,,MG838729,,,,bark,"59°30.073′N, 16°27.558′E ",59.5012167,16.4593
+L. atropunctata ,Ertz 14493 ,,MG838730,,,,,,,
+L. cf. farinosa ,Ertz 14042 ,,MG838731,,,,,,,
+L. cf. farinosa ,Ertz 14053 ,MG845011,,,,,,,,
+L. cf. farinosa ,Ertz 14054 ,,MG838732,,,,,,,
+L. cf. farinosa ,Ertz 16869 ,MG845012,,,,,,,,
+L. cf. farinosa ,Ertz 16891 ,MG845013,,,,,,,,
+L. hypothallina ,Ertz 12448 ,MG845014,,,,,,,,
+L. uniseptata ,Ertz 9859 ,MG845015,,,,,,,,
+,,,,,,,,,,
